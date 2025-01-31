@@ -1,0 +1,47 @@
+App\Entity\Media:
+  media (template):
+    shortDescription: "short description <current()>"
+    longDescription: "long description <current()>"
+    releaseDate: "<dateTimeBetween('-1 week','+1 week')>"
+    coverImage: "https://picsum.photos/300/400?random=<current()>"
+    category: 
+      - "@category_action"
+      - "@category_aventure"
+      - "@category_comedie"
+      - "@category_drame"
+      - "@category_fantastique"
+      - "@category_horreur"
+      - "@category_romance"
+      
+    languages:
+      - "@lang_fr"
+      - "@lang_en"
+
+
+
+App\Entity\Movie:
+  media_movie_{1..20} (extends media):
+    title: "Film <current()> - <name()>"
+
+App\Entity\Serie:
+  media_serie_{1..20} (extends media):
+    title: "Série <current()> - <name()>"
+
+App\Entity\Season:
+  season_{1..10}:
+    seasonNumber: <current()>
+    serie: '@media_serie_*'
+
+App\Entity\Episode:
+  episode_{1..15}:
+    title: "Episode <current()> - <name()>"
+    season: '@season_*'
+    duration: <dateTimeBetween('00:10:00', '00:50:00')>
+    releaseDate: "<dateTimeBetween('-1 week','+1 week')>"
+
+App\Entity\WatchHistory:
+  watchhistory_{1..41}:
+    userWatch: '@user_*'
+    media: '@media_*'
+    lastWatched: '<dateTimeBetween("-1 year", "now")>'
+    numberOfViews: <numberBetween(1, 10)>

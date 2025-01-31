@@ -1,0 +1,24 @@
+App\Entity\Subscription:
+  subscription_hd:
+    name: 'HD'
+    price: 9.99
+    durationInMonths: 30
+  subscription_full_hd:
+    name: 'Full HD'
+    price: 14.99
+    durationInMonths: 30
+  subscription_ultra_hd:
+    name: 'Ultra HD'
+    price: 19.99
+    durationInMonths: 30
+  subscription_premium:
+    name: 'Premium'
+    price: 24.99
+    durationInMonths: 30
+
+App\Entity\SubscriptionHistory:
+  subhistory_{1..25}:
+    subscription: '@subscription_*'
+    userSub: '@user_*'
+    startDate: '<dateTimeBetween("-1 year", "now")>'
+    endDate: '<dateTimeBetween("now", "+1 year")>'
