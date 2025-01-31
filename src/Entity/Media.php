@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping\DiscriminatorMap;
 use Doctrine\ORM\Mapping\InheritanceType;
 
 #[InheritanceType('JOINED')]
-#[DiscriminatorColumn(name: 'discr', type: 'string')]
+#[DiscriminatorColumn(name: 'media_type', type: 'string')]
 #[DiscriminatorMap(['serie' => Serie::class, 'movie' => Movie::class])]
 #[ORM\Entity(repositoryClass: MediaRepository::class)]
 class Media
@@ -22,9 +22,6 @@ class Media
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-    #[ORM\Column(enumType: TypeMedia::class)]
-    private ?TypeMedia $mediaType = null;
 
     #[ORM\Column(length: 255)]
     private ?string $title = null;
@@ -89,18 +86,6 @@ class Media
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getMediaType(): ?TypeMedia
-    {
-        return $this->mediaType;
-    }
-
-    public function setMediaType(TypeMedia $mediaType): static
-    {
-        $this->mediaType = $mediaType;
-
-        return $this;
     }
 
     public function getTitle(): ?string

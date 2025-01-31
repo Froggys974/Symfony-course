@@ -1,0 +1,14 @@
+App\Entity\Comment:
+  comment_{1..45}:
+    content: "<sentence()>"
+    userComment: "@user_*"
+    media: "@media_*"
+    statusComment: 'publish'
+
+  comment_with_parent_{1..30}:
+    content: "<sentence()>"
+    userComment: "@user_*"
+    media: "@media_*"
+    parentComment: "@comment_*"
+    statusComment: 'publish'
+

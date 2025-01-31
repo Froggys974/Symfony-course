@@ -1,0 +1,19 @@
+App\Entity\User:
+  user_admin:
+    username: 'admin'
+    email: 'admin@admin.fr'
+    password: 'admin'
+    accountStatus: 'active'
+
+  user_{1..50}:
+    username: <name()>
+    email: <email()>
+    password: <password()>
+    accountStatus: 'active'
+
+  user_with_subscription_{1..10}: 
+    username: <name()>
+    email: <email()>
+    password: <password()>
+    currentSubscription: '@subscription_*'
+    accountStatus: 'active'

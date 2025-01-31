@@ -30,6 +30,7 @@ class Comment
     private ?Media $media = null;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'commentResponses')]
+    #[ORM\JoinColumn(onDelete: 'CASCADE')]
     private ?self $parentComment = null;
 
     /**
