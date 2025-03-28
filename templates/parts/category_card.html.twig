@@ -1,0 +1,6 @@
+<a href="{{ path('app_category_detail', {idCategory:categoryId}) }}" class="relative flex flex-row items-center justify-center rounded-xl overflow-hidden aspect-square border hover:scale-105 cursor-pointer transition hover:bg-gray-100">
+    <span class="text-red-600 font-bold mr-2">
+        {% include svgPath %}
+    </span>
+    <span class="capitalize font-medium text-3xl truncate">{{ categoryName }}</span>
+</a>

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'Error 403' }}
+{% endblock %}
+
+{% block main %}
+    <div class="flex items-center justify-center min-h-screen bg-gray-50 text-gray-700">
+        <div class="text-center p-8 bg-white rounded-xl shadow-lg">
+            <svg class="mx-auto h-24 w-24 text-red-600 mb-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m0 0H9m3 0h3m-3 4v-2a2 2 0 0 0 2-2h3a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2h-1.5a2 2 0 0 0-1.58.79L14 7.62a2 2 0 0 0-2.58-.79L9 9.62a2 2 0 0 0-1.58-.79H6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h3a2 2 0 0 0 2 2v2z" />
+            </svg>
+            <h1 class="text-6xl font-extrabold text-red-600 mb-4">Oops! 🙅‍♂️</h1>
+            <p class="text-lg mb-6">
+                Vous n'êtes pas autorisé à accéder à cette page !<br>
+                Cela pourrait être dû à des restrictions d'accès ou à un problème de permission. 
+            </p>
+            <p class="text-sm text-gray-500 mb-6">
+                Code d'erreur : <strong>{{ status_code }}</strong><br>
+            </p>
+            <p class="text-sm text-gray-500 mb-6">
+                Si vous pensez qu'il s'agit d'une erreur, n'hésitez pas à contacter un administrateur.
+            </p>
+            <a href="{{ path('app_home') }}" class="bg-red-600 text-white py-2 px-4 rounded-full hover:bg-red-700 transition duration-300">
+                Retour à l'accueil
+            </a>
+        </div>
+    </div>
+{% endblock %}
