@@ -19,7 +19,7 @@ final class SubscriptionController extends AbstractController{
         return $this->render('other_content/subscriptions.html.twig', [
             'title' => 'Abonnements',
             'subscriptions' => $this->subscriptionRepository->findAll(),
-            'userSubscriptions' => $this->getUser()->getCurrentSubscription(),
+            // 'userSubscriptions' => $this->getUser()->getCurrentSubscription(),
         ]);
     }
 }

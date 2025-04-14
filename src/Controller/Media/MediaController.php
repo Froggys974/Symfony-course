@@ -8,15 +8,15 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/movie', name: 'app_movie_')]
-final class MovieController extends AbstractController{
+#[Route('/media', name: 'app_media_')]
+final class MediaController extends AbstractController{
 
-    #[Route('/detail/{idMovie}', name: 'detail')]
-    public function categoryDetail(Movie $idMovie): Response
+    #[Route('/lists', name: 'lists')]
+    public function mediaList(): Response
     {
 
-        return $this->render('media/detail.html.twig', [
-            'movie' => $idMovie,
+        return $this->render('media/lists.html.twig', [
+            // 'movie' => $idMovie,
         ]);
     }
 }
