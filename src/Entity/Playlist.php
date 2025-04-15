@@ -31,7 +31,7 @@ class Playlist
     private Collection $playlistMedia;
 
     #[ORM\ManyToOne(inversedBy: 'playlists')]
-    private ?user $userCreator = null;
+    private ?User $userCreator = null;
 
     /**
      * @var Collection<int, PlaylistSubscription>
@@ -116,12 +116,12 @@ class Playlist
         return $this;
     }
 
-    public function getUserCreator(): ?user
+    public function getUserCreator(): ?User
     {
         return $this->userCreator;
     }
 
-    public function setUserCreator(?user $userCreator): static
+    public function setUserCreator(?User $userCreator): static
     {
         $this->userCreator = $userCreator;
 
@@ -157,4 +157,11 @@ class Playlist
 
         return $this;
     }
+    public function getAllPlaylistMediaByType(string $className): Collection
+    {
+        return $this->playlistMedia->filter(function (PlaylistMedia $playlistMedia) use ($className) {
+            return $playlistMedia->getMedia() instanceof $className;
+        });
+    }
+
 }

@@ -16,6 +16,20 @@ class WatchHistoryRepository extends ServiceEntityRepository
         parent::__construct($registry, WatchHistory::class);
     }
 
+    public function getTendanceMedia(int $maxTendance)
+    {
+        $qb = $this->createQueryBuilder('wahi')
+            ->select('medi.id AS media', 'SUM(wahi.numberOfViews) AS nbViews')
+            ->innerJoin('wahi.media','medi')
+            ->groupBy('medi.id')
+            ->orderBy('SUM(wahi.numberOfViews)', 'ASC')
+            ->setMaxResults($maxTendance);
+
+        return $qb->getQuery()->getResult();
+
+
+    }
+
     //    /**
     //     * @return WatchHistory[] Returns an array of WatchHistory objects
     //     */

@@ -12,9 +12,9 @@ use Symfony\Component\Routing\Attribute\Route;
 final class MovieController extends AbstractController{
 
     #[Route('/detail/{idMovie}', name: 'detail')]
-    public function categoryDetail(Movie $idMovie): Response
+    public function MovieDetail(Movie $idMovie): Response
     {
-
+        // TODO: watch history by user
         return $this->render('media/detail.html.twig', [
             'movie' => $idMovie,
         ]);

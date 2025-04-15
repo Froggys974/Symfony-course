@@ -57,7 +57,7 @@ class AppFixtures extends Fixture
         $admin = new User();
         $admin->setUsername('admin');
         $admin->setEmail('admin@admin.fr');
-        $admin->setPassword('admin');
+        $admin->setPlainPassword('admin');
         //roles ADMIN
         $admin->setAccountStatus(UserAccountStatusEnum::ACTIVE);
         $manager->persist($admin);
@@ -161,7 +161,7 @@ class AppFixtures extends Fixture
         $user = new User();
         $user->setUsername($this->faker->userName);
         $user->setEmail($this->faker->email);
-        $user->setPassword($this->faker->password);
+        $user->setPlainPassword($this->faker->password);
         $user->setAccountStatus(UserAccountStatusEnum::ACTIVE);
         $manager->persist($user);
         return $user;
